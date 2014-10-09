@@ -16,7 +16,6 @@ private static ResultSet rs;
 public static void main(String[] args)  {
 
 	try {
-		//準備(Cドライブにあるsqlite_sampleフォルダに作成します)
 		Class.forName("org.sqlite.JDBC");
 		conn = DriverManager.getConnection("jdbc:sqlite:/../Seilordatabase");
 		stmt = conn.createStatement();
