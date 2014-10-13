@@ -17,7 +17,7 @@ public static void main(String[] args)  {
 
 	try {
 		Class.forName("org.sqlite.JDBC");
-		conn = DriverManager.getConnection("jdbc:sqlite:../Celestial Craft Fleet Fleet Battle Formation Simurator/bin/com/tofu4956/ccffbfs/sqlfile/Seilordatabase");
+		conn = DriverManager.getConnection("jdbc:sqlite:../Celestial Craft Fleet Fleet Battle Formation Simurator/bin/com/tofu4956/ccffbfs/sqlfile/Seilordatabase", "tofuccfbfs", "youneedeattofu");
 		stmt = conn.createStatement();
 
 		//テーブル作成
