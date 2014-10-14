@@ -24,10 +24,9 @@ public static void main(String[] args)  {
 		//テーブル作成
 		stmt.executeUpdate("create table seilordata( name string, rank integer, Dhp INTEGER, Datk INTEGER, Mskill TEXT, FskillR TEXT, FskillS TEXT)" );
 
-		//値を入力する
+		//値を入力
 		stmt.execute( "insert into seilordata values ( 'サキ', 5, 764, 692,'ブリザードロア', 'フリーズロア', 'アイシクルレイン')" );
 
-		//結果を表示する
 		rs = stmt.executeQuery("select * from seilordata");
 		while(rs.next()) {
 			System.out.println(rs.getString("name"));
@@ -35,10 +34,8 @@ public static void main(String[] args)  {
 		}
 
 		} catch (ClassNotFoundException e) {
-			// TODO 自動生成された catch ブロック
 			e.printStackTrace();
 		} catch (SQLException e) {
-			// TODO 自動生成された catch ブロック
 			e.printStackTrace();
 		} finally {
 			if(conn != null) {
@@ -46,7 +43,6 @@ public static void main(String[] args)  {
 					//接続を閉じる
 					conn.close();
 				} catch (SQLException e) {
-					// TODO 自動生成された catch ブロック
 					e.printStackTrace();
 				}
 			}
