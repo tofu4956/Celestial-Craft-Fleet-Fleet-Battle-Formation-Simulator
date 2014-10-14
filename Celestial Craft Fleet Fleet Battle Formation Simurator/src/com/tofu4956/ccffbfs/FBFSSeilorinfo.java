@@ -22,7 +22,7 @@ public static void main(String[] args)  {
 		stmt = conn.createStatement();
 
 		//テーブル作成
-		stmt.executeUpdate("create table seilordata( name string, rank integer, Dhp INTEGER, Datk INTEGER, Mskill TEXT, FskillR TEXT, FskillS TEXT)" );
+		stmt.executeUpdate("create table seilordata( name string, rank integer, Dhp INTEGER, Datk INTEGER, Mskill TEXT, FskillR TEXT, SkillS TEXT)" );
 
 		//値を入力する
 		stmt.execute( "insert into seilordata values ( 'サキ', 5, 764, 692,'ブリザードロア', 'フリーズロア', 'アイシクルレイン')" );
