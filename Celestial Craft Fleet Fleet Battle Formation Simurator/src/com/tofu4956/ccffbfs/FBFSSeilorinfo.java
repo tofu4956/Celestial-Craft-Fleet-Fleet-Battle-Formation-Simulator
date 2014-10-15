@@ -14,7 +14,7 @@ private static Connection conn;
 private static Statement stmt;
 private static ResultSet rs;
 
-public static void main(String[] args)  {
+public static void main(String[] args) throws SQLException  {
 
 	try {
 		Class.forName("org.sqlite.JDBC");
@@ -28,6 +28,7 @@ public static void main(String[] args)  {
 		stmt.execute( "insert into seilordata values ( 'サキ', 5, 764, 692,'ブリザードロア', 'フリーズロア', 'アイシクルレイン')" );
 
 		rs = stmt.executeQuery("select * from seilordata");
+		//動作確認用
 		while(rs.next()) {
 			System.out.println(rs.getString("name"));
 			System.out.println(rs.getInt("rank"));
@@ -36,7 +37,19 @@ public static void main(String[] args)  {
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
+			stmt.executeUpdate("drop table seilordata");
 			e.printStackTrace();
+			System.out.println("Wrong DBTable or DBTable version is old. CCFFBFS will be recreating database...");
+			conn = DriverManager.getConnection("jdbc:sqlite:../Celestial Craft Fleet Fleet Battle Formation Simurator/bin/com/tofu4956/ccffbfs/sqlfile/Seilordatabase.s3db", "tofuccfbfs", "youneedeattofu");
+			stmt = conn.createStatement();
+			stmt.executeUpdate("create table seilordata( name string, rank integer, Dhp INTEGER, Datk INTEGER, Mskill string, FskillR string, FskillS string)" );
+			stmt.execute("insert into seilordata values ( 'サキ', 5, 764, 692,'ブリザードロア', 'フリーズロア', 'アイシクルレイン')" );
+			rs = stmt.executeQuery("select * from seilordata");
+			//動作確認用
+			while(rs.next()) {
+				System.out.println(rs.getString("name"));
+				System.out.println(rs.getInt("rank"));
+			}
 		} finally {
 			if(conn != null) {
 				try {
