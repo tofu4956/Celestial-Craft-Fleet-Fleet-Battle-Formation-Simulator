@@ -1,3 +1,5 @@
+//コードの汚さは一人前
+
 package com.tofu4956.ccffbfs;
 
 import java.awt.Frame;
@@ -10,7 +12,7 @@ public class FBFSMain extends Frame implements ActionListener{
     }
 	FBFSMain() {
         super("FBFSMain");
-        setSize(200, 100);
+        setSize(920,600);
         setVisible(true);
     }
 
